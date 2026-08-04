@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,13 +18,13 @@ theme: {
 extend: {
 colors: {
 grit: {
-blue: '#004b87', /* 公式ロゴのロイヤルブルー */
-green: '#4db53c', /* 公式ロゴの双葉の若葉グリーン */
-darkblue: '#0b3c66', /* グラデーション用の深みのある紺 */
-ice: '#f3f8fc', /* 背景の極薄い水色 */
-sky: '#e0f2fe', /* 背景グラデーション用 */
-yellow: '#fffde7', /* バナーの柔らかい黄 */
-yellowBorder: '#fde047'/* バナーの枠線 */
+blue: '#004b87',
+green: '#4db53c',
+darkblue: '#0b3c66',
+ice: '#f3f8fc',
+sky: '#e0f2fe',
+yellow: '#fffde7',
+yellowBorder: '#fde047'
 }
 },
 fontFamily: {
@@ -39,7 +38,6 @@ sans: ['Noto Sans JP', 'sans-serif'],
 html {
 scroll-behavior: smooth;
 }
-/* チラシのようなキラキラした星空グラデーションを再現する背景 */
 .hero-bg {
 background: radial-gradient(circle at 80% 20%, rgba(224, 242, 254, 0.7) 0%, rgba(243, 248, 252, 0.95) 100%),
 linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #f3f8fc 100%);
@@ -75,9 +73,8 @@ box-shadow: 0 0 12px 4px rgba(255,255,255,0.95);
 <!-- ヘッダー -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-50 shadow-sm">
 <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-<!-- 送付いただいたロゴを精密再現したSVGロゴ -->
 <!-- ヘッダーのロゴ部分 -->
-<a href="#" class="flex items-center space-x-2 group">
+<a href="#" class="flex items-center space-x-2 group shrink-0">
   <img src="logo.png" alt="家庭教師GRITロゴ" class="w-10 h-10 object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-300">
   <div class="flex flex-col">
     <span class="text-2xl font-black tracking-[0.08em] text-grit-blue block leading-none">GRIT</span>
@@ -85,23 +82,40 @@ box-shadow: 0 0 12px 4px rgba(255,255,255,0.95);
   </div>
 </a>
 
-<!-- ナビゲーション (PC用) -->
-<nav class="hidden lg:flex items-center space-x-8 font-bold text-grit-blue">
-<a href="#about" class="hover:text-grit-green transition-colors">GRITの特徴</a>
-<a href="#price" class="hover:text-grit-green transition-colors">受講料</a>
-<a href="#simulator" class="hover:text-grit-green transition-colors">料金シミュレーター</a>
-<a href="#steps" class="hover:text-grit-green transition-colors">指導の流れ</a>
-<a href="#faq" class="hover:text-grit-green transition-colors">よくある質問</a>
-<a href="#contact" class="hover:text-grit-green transition-colors">お問い合わせ</a>
+<!-- ナビゲーション (PC用: whitespace-nowrapで折り返しを防ぐ) -->
+<nav class="hidden lg:flex items-center space-x-4 xl:space-x-8 font-bold text-grit-blue text-sm xl:text-base">
+<a href="#about" class="hover:text-grit-green transition-colors whitespace-nowrap">GRITの特徴</a>
+<a href="#price" class="hover:text-grit-green transition-colors whitespace-nowrap">受講料</a>
+<a href="#simulator" class="hover:text-grit-green transition-colors whitespace-nowrap">料金シミュレーター</a>
+<a href="#steps" class="hover:text-grit-green transition-colors whitespace-nowrap">指導の流れ</a>
+<a href="#faq" class="hover:text-grit-green transition-colors whitespace-nowrap">よくある質問</a>
+<a href="#contact" class="hover:text-grit-green transition-colors whitespace-nowrap">お問い合わせ</a>
 </nav>
 
-<!-- 電話相談CTA -->
-<div class="flex items-center">
-<a href="tel:080-2545-4568" class="bg-grit-blue text-white font-bold py-2.5 px-5 rounded-full shadow-md hover:bg-opacity-95 hover:shadow-lg transition-all flex items-center text-sm">
-<i data-lucide="phone" class="w-4 h-4 mr-1.5 animate-pulse"></i>
-<span class="hidden sm:inline mr-1">無料相談・お問合せ </span>080-2545-4568
-</a>
+<!-- 電話相談CTA & モバイルメニューボタン -->
+<div class="flex items-center shrink-0 gap-2 sm:gap-3">
+<a href="tel:080-2545-4568" class="bg-grit-blue text-white py-1.5 px-3 lg:px-4 rounded-full shadow-md hover:bg-opacity-95 hover:shadow-lg transition-all flex items-center">
+<i data-lucide="phone" class="w-5 h-5 mr-1.5 animate-pulse"></i>
+<div class="flex flex-col text-center">
+<span class="text-[9px] lg:text-[10px] font-bold leading-none mb-1 opacity-90">無料相談・お問い合わせ</span>
+<span class="text-xs lg:text-sm font-black leading-none tracking-wider">080-2545-4568</span>
 </div>
+</a>
+<!-- ハンバーガーメニュー (モバイル用) -->
+<button id="mobile-menu-btn" class="lg:hidden p-2 text-grit-blue hover:bg-blue-50 rounded-lg transition-colors">
+<i data-lucide="menu" class="w-6 h-6"></i>
+</button>
+</div>
+</div>
+
+<!-- モバイル用ナビゲーションメニュー (ドロップダウン) -->
+<div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-blue-50 shadow-lg flex-col font-bold text-grit-blue z-50">
+<a href="#about" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">GRITの特徴</a>
+<a href="#price" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">受講料</a>
+<a href="#simulator" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">料金シミュレーター</a>
+<a href="#steps" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">指導の流れ</a>
+<a href="#faq" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">よくある質問</a>
+<a href="#contact" class="block py-4 px-6 hover:bg-blue-50 transition-colors mobile-link">お問い合わせ</a>
 </div>
 </header>
 
@@ -109,7 +123,7 @@ box-shadow: 0 0 12px 4px rgba(255,255,255,0.95);
 <section class="hero-bg py-20 md:py-28 px-4 relative">
   <div class="max-w-4xl mx-auto text-center relative z-10">
     
-    <!-- ロゴマーク (1つに整理し、丸みを帯びたスタイルに調整) -->
+    <!-- ロゴマーク -->
     <div class="flex justify-center mb-8">
       <div class="bg-white/90 p-3 rounded-3xl shadow-xl border border-white/60 flex items-center justify-center w-40 h-40">
         <img src="logo.png" alt="家庭教師GRITロゴ" class="w-full h-full object-contain">
@@ -121,15 +135,16 @@ box-shadow: 0 0 12px 4px rgba(255,255,255,0.95);
       家庭教師GRIT — 目標達成に必要な“やり抜く力（GRIT）”を育む
     </div>
     
-    <h2 class="text-4xl md:text-6xl font-black text-grit-blue leading-tight mb-6">
-      自分らしく、<br class="sm:hidden">最後まで<span class="text-grit-green underline decoration-grit-blue/20 decoration-wavy decoration-2">やり抜く</span>。
+    <!-- 改行をなくし、1行で表示するように修正 -->
+    <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-grit-blue leading-tight mb-6">
+      自分らしく、最後まで<span class="text-grit-green underline decoration-grit-blue/20 decoration-wavy decoration-2">やり抜く</span>。
     </h2>
 
     <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-medium mb-10 leading-relaxed">
       勉強のやり方・計画から見直し、学年や受験に合わせた個別設計で、家庭での確かな勉強習慣をしっかりとサポート。親しみやすい現役大学生講師が伴走します。
     </p>
 
-    <!-- クイックCTA (ボタン部分が消えていたので補完しました) -->
+    <!-- クイックCTA -->
     <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
       <a href="#contact" class="w-full bg-gradient-to-r from-grit-blue to-blue-800 text-white font-black py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all text-center text-base">
         無料相談・体験授業を予約する
@@ -140,14 +155,12 @@ box-shadow: 0 0 12px 4px rgba(255,255,255,0.95);
     </div>
   </div>
 
-  <!-- 下部デコレーションの波 -->
   <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#f8fafc] to-transparent"></div>
 </section>
 
 <!-- 理念 -->
 <section class="py-16 px-4 max-w-4xl mx-auto text-center">
 <div class="bg-white rounded-3xl p-8 md:p-12 border border-blue-50 shadow-sm relative overflow-hidden">
-<!-- 背景マーク -->
 <div class="absolute right-0 bottom-0 opacity-[0.03] translate-x-12 translate-y-12">
 <svg viewBox="0 0 100 100" class="w-64 h-64 text-grit-blue">
 <path d="M 72 31 A 30 30 0 1 0 72 69 L 72 51 L 56 51" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round"/>
@@ -175,7 +188,6 @@ GRITの特徴
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
 <!-- 特徴1 -->
 <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-blue-50/80 hover:shadow-xl hover:border-blue-100 transition-all hover:-translate-y-1 group">
 <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 transition-transform">
@@ -222,7 +234,6 @@ GRITの特徴
 指導のない日の「宿題」「自習内容」の具体的なスケジューリングと進捗管理を通して、自主的・自発的に学習机へ向かう一生モノの勉強習慣を定着させます。
 </p>
 </div>
-
 </div>
 </section>
 
@@ -237,7 +248,7 @@ GRITの特徴
 </svg>
 </div>
 <div>
-<span class="bg-amber-150 text-amber-900 text-xs font-black px-3.5 py-1 rounded-full border border-amber-200">TUTOR STAFF</span>
+<span class="bg-amber-100 text-amber-900 text-xs font-black px-3.5 py-1 rounded-full border border-amber-200">TUTOR STAFF</span>
 <h4 class="text-2xl font-black text-amber-900 mt-3 mb-2">
 親しみやすい現役大学生講師が伴走！
 </h4>
@@ -263,7 +274,6 @@ GRITの特徴
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-
 <!-- 小学生 -->
 <div class="bg-white rounded-3xl border border-blue-100 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group">
 <div class="bg-grit-blue text-white py-5 px-6 text-center">
@@ -371,9 +381,7 @@ GRITの特徴
 </div>
 </div>
 </div>
-
 </div>
-
 </div>
 </section>
 
@@ -446,10 +454,10 @@ GRITの特徴
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(77,181,60,0.25),transparent_60%)]"></div>
 <span class="text-xs font-bold tracking-widest uppercase opacity-75 relative z-10">Monthly Estimate</span>
 <div class="text-sm font-medium mt-1 relative z-10">月謝の目安金額</div>
-<div class="text-3xl md:text-5xl font-black tracking-wider my-2.5 text-amber-250 relative z-10">
+<div class="text-3xl md:text-5xl font-black tracking-wider my-2.5 text-yellow-300 relative z-10">
 <span class="text-lg">約 </span><span id="calc-result">12,000</span><span class="text-xl"> 円</span> <span class="text-xs font-bold opacity-85">(税込)</span>
 </div>
-<p class="text-[11px] opacity-75 relative z-10">※高額なテキスト販売・入会金は不要です。指導回数・プラン変更も柔軟に対応します。</p>
+<!-- ※高額な～ の注記は指示により削除しました -->
 </div>
 </div>
 </div>
@@ -468,13 +476,12 @@ GRITの特徴
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-<!-- 接続線 (PC用) -->
 <div class="hidden md:block absolute top-1/2 left-4 right-4 h-0.5 bg-blue-100 -translate-y-12 z-0"></div>
 
 <!-- ステップ1 -->
 <div class="bg-white p-6 rounded-3xl border border-blue-50 text-center relative z-10 shadow-sm">
 <div class="w-12 h-12 bg-grit-blue text-white font-black rounded-full flex items-center justify-center mx-auto mb-4 text-lg">1</div>
-<h4 class="text-lg font-bold text-grit-blue mb-2">無料お問い合わせ</h4>
+<h4 class="text-lg font-bold text-grit-blue mb-2">お問い合わせ</h4>
 <p class="text-xs text-gray-500 leading-relaxed">
 お電話、メール、または本サイトのお問い合わせフォームからお気軽にご連絡ください。疑問への質問だけでも大歓迎です。
 </p>
@@ -522,7 +529,6 @@ GRITの特徴
 </div>
 
 <div class="space-y-4">
-<!-- 質問1 -->
 <div class="border border-blue-50 rounded-2xl overflow-hidden shadow-sm">
 <button onclick="toggleFaq(1)" class="w-full flex justify-between items-center bg-blue-50/20 px-6 py-4 text-left font-bold text-grit-blue hover:bg-blue-50/40 transition-colors">
 <span>Q. 塾に通っていますが、併用は可能ですか？</span>
@@ -533,7 +539,6 @@ A. もちろん可能です。現在お通いの集団塾・個別指導塾の�
 </div>
 </div>
 
-<!-- 質問2 -->
 <div class="border border-blue-50 rounded-2xl overflow-hidden shadow-sm">
 <button onclick="toggleFaq(2)" class="w-full flex justify-between items-center bg-blue-50/20 px-6 py-4 text-left font-bold text-grit-blue hover:bg-blue-50/40 transition-colors">
 <span>Q. 授業料以外に高額な費用が発生することはありますか？</span>
@@ -544,7 +549,6 @@ A. いいえ、ございません。GRITでは高額な教材販売や不明瞭�
 </div>
 </div>
 
-<!-- 質問3 -->
 <div class="border border-blue-50 rounded-2xl overflow-hidden shadow-sm">
 <button onclick="toggleFaq(3)" class="w-full flex justify-between items-center bg-blue-50/20 px-6 py-4 text-left font-bold text-grit-blue hover:bg-blue-50/40 transition-colors">
 <span>Q. 指導日以外の宿題管理やサポートはどのようなものですか？</span>
@@ -555,7 +559,6 @@ A. 生徒一人ひとりの習熟度・スケジュールに合わせて、「�
 </div>
 </div>
 
-<!-- 質問4 -->
 <div class="border border-blue-50 rounded-2xl overflow-hidden shadow-sm">
 <button onclick="toggleFaq(4)" class="w-full flex justify-between items-center bg-blue-50/20 px-6 py-4 text-left font-bold text-grit-blue hover:bg-blue-50/40 transition-colors">
 <span>Q. 担当講師を変更してもらうことは可能ですか？</span>
@@ -565,7 +568,6 @@ A. 生徒一人ひとりの習熟度・スケジュールに合わせて、「�
 A. はい、可能です。万が一「性格が少し合わないかもしれない」「別の科目の比重を高めたい」といった場合は、代表までご相談いただければ無料で講師を調整・交代いたします。
 </div>
 </div>
-
 </div>
 </div>
 </section>
@@ -573,7 +575,6 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 <!-- お問い合わせセクション -->
 <section id="contact" class="py-20 px-4 bg-[#f8fafc]">
 <div class="max-w-6xl mx-auto">
-
 <div class="text-center mb-16">
 <span class="text-xs uppercase tracking-widest text-grit-green font-black">Contact</span>
 <h2 class="text-3xl md:text-4xl font-black text-grit-blue mt-1.5 relative inline-block">
@@ -584,17 +585,13 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 </div>
 
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-<!-- チラシ連絡先情報カード -->
+<!-- 連絡先情報カード -->
 <div class="lg:col-span-5 bg-grit-blue text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
 <div class="absolute top-[-40px] right-[-40px] w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
 <div class="absolute bottom-[-30px] left-[-30px] w-28 h-28 bg-grit-green/20 rounded-full blur-xl"></div>
 
 <h3 class="text-2xl font-black border-b border-white/20 pb-4 mb-6 tracking-wide">ご連絡先</h3>
-
-<!-- 代表、電話、メール -->
 <div class="space-y-6 relative z-10">
-
 <div class="flex items-start space-x-3.5">
 <div class="bg-blue-950 p-3 rounded-xl text-blue-300 shrink-0">
 <i data-lucide="user" class="w-5 h-5"></i>
@@ -624,7 +621,6 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 <div class="text-base font-bold break-all group-hover:underline">katekyogrit@gmail.com</div>
 </div>
 </a>
-
 </div>
 
 <!-- SNS ＆ QRコード -->
@@ -639,39 +635,19 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 公式インスタを見る
 </a>
 </div>
-<!-- QRコードを模したSVG -->
 <div class="w-24 h-24 bg-white p-2 rounded-2xl shrink-0 flex flex-col justify-center items-center shadow-inner">
-<svg viewBox="0 0 100 100" class="w-full h-full text-grit-blue">
-<rect x="5" y="5" width="25" height="25" fill="none" stroke="currentColor" stroke-width="6"/>
-<rect x="12" y="12" width="11" height="11" fill="currentColor"/>
-
-<rect x="70" y="5" width="25" height="25" fill="none" stroke="currentColor" stroke-width="6"/>
-<rect x="77" y="12" width="11" height="11" fill="currentColor"/>
-
-<rect x="5" y="70" width="25" height="25" fill="none" stroke="currentColor" stroke-width="6"/>
-<rect x="12" y="77" width="11" height="11" fill="currentColor"/>
-
-<rect x="40" y="10" width="8" height="8" fill="currentColor"/>
-<rect x="52" y="18" width="12" height="6" fill="currentColor"/>
-<rect x="45" y="35" width="15" height="8" fill="currentColor"/>
-<rect x="15" y="45" width="8" height="15" fill="currentColor"/>
-<rect x="35" y="55" width="20" height="8" fill="currentColor"/>
-<rect x="70" y="40" width="12" height="12" fill="currentColor"/>
-<rect x="85" y="60" width="8" height="15" fill="currentColor"/>
-<rect x="45" y="80" width="12" height="8" fill="currentColor"/>
-<rect x="75" y="80" width="15" height="15" fill="currentColor"/>
-</svg>
-<span class="text-[8px] font-black text-gray-500 mt-1 scale-90">公式インスタ</span>
+  <!-- QRコード画像を読み込む部分 (ファイル名を qr-code.png と想定) -->
+  <img src="qr-code.png" alt="Instagram QRコード" class="w-full h-full object-contain rounded-lg" onerror="this.src='https://placehold.co/100x100/f3f8fc/004b87?text=QR+Code'">
+  <span class="text-[8px] font-black text-gray-500 mt-1 scale-90">公式インスタ</span>
+</div>
 </div>
 </div>
 
-</div>
-
-<!-- メールフォーム -->
+<!-- メールフォーム (JS制御用にidを追加) -->
 <div class="lg:col-span-7 bg-white rounded-3xl p-8 shadow-sm border border-blue-50">
 <h3 class="text-xl font-bold text-grit-blue mb-6">メールフォームでお問い合わせ</h3>
 
-<form action="https://formspree.io/f/mqerazjq" method="POST" class="space-y-4">
+<form id="contactForm" action="https://formspree.io/f/mqerazjq" method="POST" class="space-y-4">
   <input type="hidden" name="_subject" value="【家庭教師GRIT】ホームページからのお問い合わせ">
   
   <div>
@@ -711,6 +687,7 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
     <span>送信する</span>
   </button>
 </form>
+
 <!-- 送信完了メッセージ -->
 <div id="successMessage" class="hidden bg-blue-50/50 border border-grit-blue/20 rounded-2xl p-6 text-center space-y-4">
 <div class="w-12 h-12 bg-grit-blue text-white rounded-full flex items-center justify-center mx-auto shadow-md">
@@ -724,22 +701,16 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 もう一度フォームを再表示する
 </button>
 </div>
-
 </div>
-
 </div>
-
 </div>
 </section>
 
 <!-- フッター -->
 <footer class="bg-slate-900 text-slate-300 py-16 px-4 border-t border-slate-800">
 <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-
-<!-- 左: ロゴ・キャッチコピー -->
 <div class="text-center md:text-left">
 <div class="flex items-center justify-center md:justify-start space-x-2 mb-3">
-<!-- ミニ公式ロゴ -->
 <svg viewBox="0 0 100 100" class="w-8 h-8">
 <path d="M 72 31 A 30 30 0 1 0 72 69 L 72 51 L 56 51" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="miter" />
 <path d="M 50 51 L 50 64" stroke="#4db53c" stroke-width="4.5" stroke-linecap="round" />
@@ -751,7 +722,6 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 <p class="text-xs text-slate-400 font-bold">目標達成に必要な“やり抜く力”を育む家庭教師</p>
 </div>
 
-<!-- 中: ページ内リンク -->
 <div class="flex flex-wrap justify-center gap-6 text-sm font-bold text-slate-400">
 <a href="#about" class="hover:text-white transition-colors">GRITの特徴</a>
 <a href="#price" class="hover:text-white transition-colors">受講料</a>
@@ -760,12 +730,10 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 <a href="#faq" class="hover:text-white transition-colors">よくある質問</a>
 </div>
 
-<!-- 右: コピーライト -->
 <div class="text-center md:text-right text-xs text-slate-500">
 <p>© 2026 家庭教師GRIT. All Rights Reserved.</p>
 <p class="mt-1">代表：前原 祐樹</p>
 </div>
-
 </div>
 </footer>
 
@@ -786,6 +754,36 @@ ans.classList.add('hidden');
 icon.classList.remove('rotate-180');
 }
 }
+
+// モバイルメニューの制御
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+let isMenuOpen = false;
+
+mobileMenuBtn.addEventListener('click', () => {
+isMenuOpen = !isMenuOpen;
+if (isMenuOpen) {
+mobileMenu.classList.remove('hidden');
+mobileMenu.classList.add('flex');
+mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>'; // ×アイコンに変更
+} else {
+mobileMenu.classList.add('hidden');
+mobileMenu.classList.remove('flex');
+mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>'; // 三アイコンに戻す
+}
+lucide.createIcons(); // アイコンを再描画
+});
+
+mobileLinks.forEach(link => {
+link.addEventListener('click', () => {
+isMenuOpen = false;
+mobileMenu.classList.add('hidden');
+mobileMenu.classList.remove('flex');
+mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+lucide.createIcons();
+});
+});
 
 // 料金データの定義
 const prices = {
@@ -833,7 +831,9 @@ courseRadios.forEach(radio => radio.addEventListener('change', calculateFees));
 durationRadios.forEach(radio => radio.addEventListener('change', calculateFees));
 frequencySlider.addEventListener('input', calculateFees);
 
-// お問い合わせフォーム送信
+// お問い合わせフォーム送信時の処理 (Formspreeを利用する場合、通常はページ遷移するため、非同期通信にするかデフォルトに任せます)
+// Formspreeでページ遷移させずに成功メッセージを出す場合はfetch等が必要ですが、
+// 既存の handleSubmit の仕組みを使うなら以下のようになります。（※今回はデフォルトのactionに任せるため一旦この関数は呼ばれません）
 function handleSubmit(event) {
 event.preventDefault();
 document.getElementById('contactForm').classList.add('hidden');
@@ -852,6 +852,3 @@ calculateFees();
 </script>
 </body>
 </html>
-
-
-
