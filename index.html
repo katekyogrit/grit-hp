@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>家庭教師GRIT（グリット）| 目標達成に必要な“やり抜く力”を育む</title>
-<meta name="description" content="家庭教師GRITは、勉強のやり方・計画から見直し、学年や受験に合わせた個別設計で、家庭での確かな勉強習慣をしっかりとサポートします。オンライン指導にも全国対応。">
+<meta name="description" content="家庭教師GRITは、勉強のやり方・計画から見直し、学年や受験に合わせた個別設計で、家庭での確かな勉強習慣をしっかりとサポートします。">
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Google Fonts (Noto Sans JP) -->
@@ -99,21 +99,21 @@ body {
 <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
 <!-- ヘッダーのロゴ部分 -->
 <a href="#" class="flex items-center space-x-2 group shrink-0">
-  <img src="logo.png" alt="家庭教師GRITロゴ" class="w-10 h-10 object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/100x100/004b87/ffffff?text=G'">
+  <img src="logo.png" alt="家庭教師GRITロゴ" class="w-10 h-10 object-contain rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-300">
   <div class="flex flex-col">
     <span class="text-2xl font-black tracking-[0.08em] text-grit-blue block leading-none">GRIT</span>
     <span class="text-[9px] font-bold text-gray-400 tracking-wider mt-1">家庭教師グリット</span>
   </div>
 </a>
 
-<!-- ナビゲーション (PC用) 追加項目を反映 -->
-<nav class="hidden lg:flex items-center space-x-4 xl:space-x-7 font-bold text-grit-blue text-sm xl:text-sm">
+<!-- ナビゲーション (PC用: whitespace-nowrapで折り返しを防ぐ) -->
+<nav class="hidden lg:flex items-center space-x-4 xl:space-x-8 font-bold text-grit-blue text-sm xl:text-base">
 <a href="#about" class="hover:text-grit-green transition-colors whitespace-nowrap">GRITの特徴</a>
-<a href="#achievements" class="hover:text-grit-green transition-colors whitespace-nowrap">指導実績</a>
 <a href="#price" class="hover:text-grit-green transition-colors whitespace-nowrap">受講料</a>
 <a href="#simulator" class="hover:text-grit-green transition-colors whitespace-nowrap">料金シミュレーター</a>
 <a href="#steps" class="hover:text-grit-green transition-colors whitespace-nowrap">指導の流れ</a>
-<a href="#recruit" class="hover:text-grit-green transition-colors whitespace-nowrap">講師募集</a>
+<a href="#faq" class="hover:text-grit-green transition-colors whitespace-nowrap">よくある質問</a>
+<a href="#contact" class="hover:text-grit-green transition-colors whitespace-nowrap">お問い合わせ</a>
 </nav>
 
 <!-- 電話相談CTA & モバイルメニューボタン -->
@@ -132,15 +132,14 @@ body {
 </div>
 </div>
 
-<!-- モバイル用ナビゲーションメニュー -->
+<!-- モバイル用ナビゲーションメニュー (ドロップダウン) -->
 <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-blue-50 shadow-lg flex-col font-bold text-grit-blue z-50">
 <a href="#about" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">GRITの特徴</a>
-<a href="#achievements" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">指導実績</a>
 <a href="#price" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">受講料</a>
 <a href="#simulator" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">料金シミュレーター</a>
 <a href="#steps" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">指導の流れ</a>
-<a href="#recruit" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">講師募集</a>
-<a href="#contact" class="block py-4 px-6 hover:bg-blue-50 transition-colors mobile-link bg-blue-50/30 text-grit-blue">お問い合わせ</a>
+<a href="#faq" class="block py-4 px-6 border-b border-blue-50/50 hover:bg-blue-50 transition-colors mobile-link">よくある質問</a>
+<a href="#contact" class="block py-4 px-6 hover:bg-blue-50 transition-colors mobile-link">お問い合わせ</a>
 </div>
 </header>
 
@@ -151,19 +150,7 @@ body {
     <!-- ロゴマーク -->
     <div class="flex justify-center mb-8">
       <div class="bg-white/90 p-3 rounded-3xl shadow-xl border border-white/60 flex items-center justify-center w-40 h-40">
-        <img src="logo.png" alt="家庭教師GRITロゴ" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/100x100/004b87/ffffff?text=G'">
-      </div>
-    </div>
-
-    <!-- オンライン対応・訪問指導のバッジを追加 -->
-    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-5">
-      <div class="bg-white text-grit-blue border border-blue-100 font-bold px-4 py-1.5 rounded-full text-xs md:text-sm shadow-sm flex items-center">
-        <i data-lucide="map-pin" class="w-4 h-4 mr-1 text-grit-blue"></i>
-        訪問指導 (〇〇県近郊)
-      </div>
-      <div class="bg-blue-50 text-grit-blue border border-blue-200 font-bold px-4 py-1.5 rounded-full text-xs md:text-sm shadow-sm flex items-center">
-        <i data-lucide="laptop" class="w-4 h-4 mr-1 text-grit-blue"></i>
-        全国オンライン対応
+        <img src="logo.png" alt="家庭教師GRITロゴ" class="w-full h-full object-contain">
       </div>
     </div>
 
@@ -172,6 +159,7 @@ body {
       家庭教師GRIT — 目標達成に必要な“やり抜く力（GRIT）”を育む
     </div>
     
+    <!-- どんな画面サイズでも確実に1行で表示されるように修正（h2からh1に変更しSEO強化） -->
     <h1 class="text-[5.5vw] sm:text-3xl md:text-5xl lg:text-6xl font-black text-grit-blue leading-tight mb-6 whitespace-nowrap">
       自分らしく、最後まで<span class="text-grit-green underline decoration-grit-blue/20 decoration-wavy decoration-2">やり抜く</span>。
     </h1>
@@ -213,32 +201,8 @@ body {
 </div>
 </section>
 
-<!-- 代表挨拶 (新規追加) -->
-<section id="message" class="py-4 px-4 max-w-4xl mx-auto fade-up mb-16">
-<div class="bg-gradient-to-br from-blue-50/50 to-white rounded-3xl p-8 md:p-12 border border-blue-100 shadow-sm flex flex-col md:flex-row items-center gap-8">
-  <div class="shrink-0 flex flex-col items-center">
-    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md bg-white flex items-center justify-center mb-3">
-      <!-- 代表写真プレースホルダー -->
-      <i data-lucide="user" class="w-16 h-16 text-gray-300"></i>
-    </div>
-    <span class="text-xs font-bold text-gray-500 mb-1">家庭教師GRIT 代表</span>
-    <span class="text-lg font-black text-grit-blue">前原 祐樹</span>
-  </div>
-  <div>
-    <h3 class="text-xl font-bold text-grit-blue mb-4 leading-tight">
-      「正しいやり方」と「続ける力」を身につければ、成績は必ず伸びます。
-    </h3>
-    <p class="text-gray-600 leading-relaxed text-sm space-y-3">
-      はじめまして、代表の前原です。これまで多くの生徒たちを見てきて痛感するのは、「成績が伸び悩む子の多くは、能力が足りないのではなく、『正しいやり方』を知らないだけ」だということです。<br>
-      私たちの指導は、ただ答えを教えるだけではありません。「なぜそうなるのか」を共に考え、そして「先生がいない日、どうやって自分で勉強を進めるか」という計画作りに時間をかけます。<br>
-      全国どこからでも受講可能なオンライン指導も充実しております。ぜひ一度、お気軽にご相談ください。
-    </p>
-  </div>
-</div>
-</section>
-
 <!-- 特徴セクション -->
-<section id="about" class="py-10 px-4 max-w-6xl mx-auto fade-up">
+<section id="about" class="py-20 px-4 max-w-6xl mx-auto fade-up">
 <div class="text-center mb-16">
 <span class="text-xs uppercase tracking-widest text-grit-green font-black">Our Strengths</span>
 <h2 class="text-3xl md:text-4xl font-black text-grit-blue mt-1.5 relative inline-block">
@@ -298,7 +262,7 @@ GRITの特徴
 </section>
 
 <!-- 講師紹介・伴走バナー -->
-<section class="max-w-6xl mx-auto px-4 mb-16 fade-up">
+<section class="max-w-6xl mx-auto px-4 mb-20 fade-up">
 <div class="bg-gradient-to-br from-amber-50 to-orange-50/30 border-2 border-amber-100 rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
 <div class="flex items-start gap-5">
 <div class="bg-white p-3.5 rounded-2xl shadow-sm hidden sm:block shrink-0 border border-amber-100">
@@ -318,60 +282,6 @@ GRITの特徴
 </div>
 </div>
 </div>
-</section>
-
-<!-- 指導実績セクション (新規追加) -->
-<section id="achievements" class="py-16 px-4 max-w-6xl mx-auto fade-up mb-10">
-  <div class="text-center mb-12">
-    <span class="text-xs uppercase tracking-widest text-grit-green font-black">Achievements</span>
-    <h2 class="text-3xl md:text-4xl font-black text-grit-blue mt-1.5 relative inline-block">
-      指導実績・喜びの声
-      <span class="absolute left-0 bottom-[-10px] w-full h-1.5 bg-gradient-to-r from-grit-blue to-grit-green rounded-full"></span>
-    </h2>
-    <p class="text-sm text-gray-500 mt-4">生徒たちが「やり抜いた」結果の一部をご紹介します。</p>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!-- 実績1 -->
-    <div class="bg-white p-6 rounded-3xl shadow-sm border border-blue-50 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full flex items-start justify-end p-3">
-        <i data-lucide="trending-up" class="w-5 h-5 text-grit-blue"></i>
-      </div>
-      <div class="inline-block bg-blue-100 text-grit-blue text-xs font-bold px-3 py-1 rounded-full mb-4">中学生 (訪問)</div>
-      <div class="text-lg font-black text-gray-800 mb-1">偏差値15アップ！</div>
-      <h3 class="text-md font-bold text-grit-blue mb-4 pb-4 border-b border-gray-100">〇〇県立 〇〇高校 合格</h3>
-      <p class="text-sm text-gray-600 leading-relaxed">
-        「学習計画を一緒に立てることで、家で自分から机に向かうようになりました。親しみやすい先生で質問もしやすかったです。」
-      </p>
-    </div>
-    
-    <!-- 実績2 -->
-    <div class="bg-white p-6 rounded-3xl shadow-sm border border-blue-50 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full flex items-start justify-end p-3">
-        <i data-lucide="award" class="w-5 h-5 text-grit-green"></i>
-      </div>
-      <div class="inline-block bg-green-100 text-grit-green text-xs font-bold px-3 py-1 rounded-full mb-4">高校生 (オンライン)</div>
-      <div class="text-lg font-black text-gray-800 mb-1">第一志望 現役合格</div>
-      <h3 class="text-md font-bold text-grit-blue mb-4 pb-4 border-b border-gray-100">〇〇大学 〇〇学部</h3>
-      <p class="text-sm text-gray-600 leading-relaxed">
-        「オンライン指導のおかげで、部活で遅くなっても効率よく受験勉強を続けられました。画面越しでも分かりやすかったです。」
-      </p>
-    </div>
-
-    <!-- 実績3 -->
-    <div class="bg-white p-6 rounded-3xl shadow-sm border border-blue-50 relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full flex items-start justify-end p-3">
-        <i data-lucide="book-open" class="w-5 h-5 text-grit-blue"></i>
-      </div>
-      <div class="inline-block bg-blue-100 text-grit-blue text-xs font-bold px-3 py-1 rounded-full mb-4">小学生 (訪問)</div>
-      <div class="text-lg font-black text-gray-800 mb-1">勉強習慣の定着</div>
-      <h3 class="text-md font-bold text-grit-blue mb-4 pb-4 border-b border-gray-100">中学受験 基礎固め</h3>
-      <p class="text-sm text-gray-600 leading-relaxed">
-        「宿題のペース管理を細かくやっていただき、親が言わなくても勉強するようになりました。基礎がしっかり身につきました。」
-      </p>
-    </div>
-  </div>
-  <p class="text-center text-xs text-gray-400 mt-6">※上記は過去の実績の一例であり、学習効果には個人差があります。</p>
 </section>
 
 <!-- 受講料セクション -->
@@ -685,43 +595,6 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 </div>
 </section>
 
-<!-- 講師募集セクション (新規追加) -->
-<section id="recruit" class="py-20 px-4 bg-slate-800 text-white border-b border-slate-900">
-  <div class="max-w-4xl mx-auto fade-up text-center">
-    <span class="text-xs uppercase tracking-widest text-grit-green font-black inline-block mb-2 bg-white/10 px-3 py-1 rounded-full border border-white/20">Recruit</span>
-    <h2 class="text-2xl md:text-3xl font-black mt-2 mb-6 text-white">
-      生徒の「やり抜く力」を育む、<br class="md:hidden">熱意ある大学生講師を募集！
-    </h2>
-    <p class="text-sm md:text-base text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-      勉強を教えるだけでなく、生徒の良き先輩として伴走しませんか？<br>
-      訪問指導はもちろん、全国からのオンライン指導担当も歓迎します。未経験でも丁寧な研修があるため安心です。
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 text-left">
-      <div class="bg-slate-700/50 p-6 rounded-2xl border border-slate-600">
-        <i data-lucide="book" class="w-8 h-8 text-grit-green mb-4"></i>
-        <h4 class="font-bold mb-2">未経験でも安心</h4>
-        <p class="text-xs text-slate-300">丁寧な研修制度と、指導中の手厚いサポート体制を整えています。</p>
-      </div>
-      <div class="bg-slate-700/50 p-6 rounded-2xl border border-slate-600">
-        <i data-lucide="clock" class="w-8 h-8 text-grit-green mb-4"></i>
-        <h4 class="font-bold mb-2">柔軟な働き方</h4>
-        <p class="text-xs text-slate-300">週1回、1コマからOK。大学の授業やサークルとの両立が可能です。</p>
-      </div>
-      <div class="bg-slate-700/50 p-6 rounded-2xl border border-slate-600">
-        <i data-lucide="heart" class="w-8 h-8 text-grit-green mb-4"></i>
-        <h4 class="font-bold mb-2">大きなやりがい</h4>
-        <p class="text-xs text-slate-300">生徒の成長を一番近くで感じられ、自身の成長にもつながります。</p>
-      </div>
-    </div>
-    
-    <a href="#contact" class="inline-flex items-center justify-center border-2 border-grit-green text-grit-green hover:bg-grit-green hover:text-white font-bold py-3 px-8 rounded-full transition-colors text-sm">
-      お問い合わせフォームから応募する
-      <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-    </a>
-  </div>
-</section>
-
 <!-- お問い合わせセクション -->
 <section id="contact" class="py-20 px-4 bg-[#f8fafc]">
 <div class="max-w-6xl mx-auto fade-up">
@@ -824,7 +697,6 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
       <option value="中学生">中学生</option>
       <option value="高校生">高校生</option>
       <option value="その他">その他</option>
-      <option value="講師募集への応募">講師募集への応募</option>
     </select>
   </div>
 
@@ -874,11 +746,10 @@ A. はい、可能です。万が一「性格が少し合わないかもしれ�
 
 <div class="flex flex-wrap justify-center gap-6 text-sm font-bold text-slate-400">
 <a href="#about" class="hover:text-white transition-colors">GRITの特徴</a>
-<a href="#achievements" class="hover:text-white transition-colors">指導実績</a>
 <a href="#price" class="hover:text-white transition-colors">受講料</a>
 <a href="#simulator" class="hover:text-white transition-colors">料金シミュレーション</a>
 <a href="#steps" class="hover:text-white transition-colors">指導の流れ</a>
-<a href="#recruit" class="hover:text-white transition-colors">講師募集</a>
+<a href="#faq" class="hover:text-white transition-colors">よくある質問</a>
 </div>
 
 <div class="text-center md:text-right text-xs text-slate-500">
